@@ -1,5 +1,6 @@
 package tasks;
 
+import interactions.ValidarModalCookies;
 import net.serenitybdd.core.steps.Instrumented;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
@@ -13,6 +14,7 @@ public class IngresarAprenderEsFacil implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
+                ValidarModalCookies.onSite(),
                 WaitUntil.the(ACCESO_RAPIDO_APRENDER_ES_FACIL, isVisible()).forNoMoreThan(30).seconds(),
                 Click.on(ACCESO_RAPIDO_APRENDER_ES_FACIL),
 
