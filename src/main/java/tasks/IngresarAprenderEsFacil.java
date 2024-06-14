@@ -1,10 +1,12 @@
 package tasks;
 
 import interactions.ValidarModalCookies;
+import interactions.Wait;
 import net.serenitybdd.core.steps.Instrumented;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actions.Switch;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
@@ -25,7 +27,11 @@ public class IngresarAprenderEsFacil implements Task {
                 Click.on(SECCION_FACTA_CRS),
 
                 WaitUntil.the(DOCUMENTO_PDF, isVisible()).forNoMoreThan(30).seconds(),
-                Click.on(DOCUMENTO_PDF)
+                Click.on(DOCUMENTO_PDF),
+
+                Wait.forTime(10),
+                Switch.toTheOtherWindow(),
+                Wait.forTime(10)
         );
     }
     public static IngresarAprenderEsFacil onSite(){
