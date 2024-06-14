@@ -16,12 +16,12 @@ import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static userinterfaces.BanitsmoPortal.PDF_ASOCIADO;
 
 public class EscenarioStepDefinitions {
-    @Given("el usuario tiene acceso al sitio web a automatizar")
+    @Given("el usuario ingresa al sitio web de Banistmo")
     public void elUsuarioTieneAccesoAlSitioWebAAutomatizar() {
         OnStage.theActorCalled(ACTOR).wasAbleTo(Open.url(URL));
     }
 
-    @When("ingresa al modulo de acceso directo aprender es fácil")
+    @When("ingresa desde el submodulo de acceso directo aprender es fácil hasta el modulo  FATCA & CRS")
     public void realizaAlgunTipoAeAccion() {
         OnStage.theActorInTheSpotlight().attemptsTo(
                 IngresarAprenderEsFacil.onSite(),
@@ -31,7 +31,7 @@ public class EscenarioStepDefinitions {
 
     }
 
-    @Then("validar pdf seleccionado")
+    @Then("valida el pdf seleccionado")
     public void validarPdfSeleccionado() {
         OnStage.theActor(ACTOR).should(seeThat(ValidarPDF.onSite(PDF_ASOCIADO)));
     }
