@@ -6,6 +6,8 @@ import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.actors.OnStage;
 import questions.ValidarPDF;
+import tasks.IngresarASubmoduloFactaCRS;
+import tasks.IngresarASubmoduloLegales;
 import tasks.IngresarAprenderEsFacil;
 
 import static models.Constantes.ACTOR;
@@ -22,7 +24,9 @@ public class EscenarioStepDefinitions {
     @When("ingresa al modulo de acceso directo aprender es fácil")
     public void realizaAlgunTipoAeAccion() {
         OnStage.theActorInTheSpotlight().attemptsTo(
-                IngresarAprenderEsFacil.onSite()
+                IngresarAprenderEsFacil.onSite(),
+                IngresarASubmoduloLegales.onSite(),
+                IngresarASubmoduloFactaCRS.onSite()
         );
 
     }

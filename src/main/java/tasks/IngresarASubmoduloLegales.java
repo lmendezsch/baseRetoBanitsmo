@@ -1,6 +1,5 @@
 package tasks;
 
-import interactions.ValidarModalCookies;
 import interactions.Wait;
 import net.serenitybdd.core.steps.Instrumented;
 import net.serenitybdd.screenplay.Actor;
@@ -11,18 +10,17 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 import static userinterfaces.BanitsmoPortal.*;
+import static userinterfaces.BanitsmoPortal.SECCION_LEGALES;
 
-public class IngresarAprenderEsFacil implements Task {
+public class IngresarASubmoduloLegales implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                ValidarModalCookies.onSite(),
-                WaitUntil.the(ACCESO_RAPIDO_APRENDER_ES_FACIL, isVisible()).forNoMoreThan(30).seconds(),
-                Click.on(ACCESO_RAPIDO_APRENDER_ES_FACIL)
-
+                WaitUntil.the(SECCION_LEGALES, isVisible()).forNoMoreThan(30).seconds(),
+                Click.on(SECCION_LEGALES)
         );
     }
-    public static IngresarAprenderEsFacil onSite(){
-        return Instrumented.instanceOf(IngresarAprenderEsFacil.class).withProperties();
+    public static IngresarASubmoduloLegales onSite(){
+        return Instrumented.instanceOf(IngresarASubmoduloLegales.class).withProperties();
     }
 }
